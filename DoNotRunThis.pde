@@ -1,23 +1,27 @@
 int shitStorm;
 PrintWriter output;
-int help;
-int emBiggen = 999999999;
+//int emBiggen = 100000000;
+int emBiggen = 5;
+
 
 void setup() {
   //output = createWriter("positions.txt");
   // Create a new file in the sketch directory
-  help = 2;
-  shitStorm = emBiggen;
+  shitStorm = 1163630;
+  //frameRate(10000);
 }
 
 void draw() {
 
-  for (int i = 2; i <=shitStorm; i++) {
-    output = createWriter("endme" + i);
-    output.print(new String(new char[shitStorm*i]).replace("\0", "all I want for Christmas is the pain to stop"));  // Write the coordinate to the file
+  for (int i = 1; i <=emBiggen; i++) {
+    nameGen();
+    output = createWriter(name + i); //creates a file 
+    output.print(new String(new char[shitStorm]).replace("\0", "all I want for Christmas is the pain to stop"));  // multiplies the string somehow. idk. 
     output.flush();  // Writes the remaining data to the file
     output.close(); // Finishes the file
-    if ( i == shitStorm) {
+    int s = millis();
+    println(i + " at " + s/1000 + " seconds ");
+    if ( i == emBiggen) {
       exit();  // Stops the program
     }
   }
